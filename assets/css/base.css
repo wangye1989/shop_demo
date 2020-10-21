@@ -1,0 +1,115 @@
+@import "../reminxicon/remixicon.css";
+
+:root {
+  /* color */
+  --c-f-main: #fff;
+  --c-f-bgcolor: #faf9f9;
+  --c-f-action: #f9445d;
+  --c-f-divider: #f4f4f4;
+
+  --c-t-primary: #443e3f;
+  --c-t-secondary: #aba4a5;
+
+  /* 配色 */
+  --c-success-500: #98d608;
+  --c-success-200: #e6fa9a;
+
+  --c-danger-500: #e55996;
+  --c-danger-200: #fcbec7;
+
+  --c-infor-500: #04c2f2;
+  --c-infor-200: #99fdfb;
+
+  --c-warning-500: #e27d18;
+  --c-warning-200: #fcdca1;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+input {
+  border: none;
+  transition: all 0.25s;
+}
+input:focus {
+  background-color: #fff;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+a {
+  text-decoration: none;
+}
+.nav-topbar {
+  display: flex;
+  flex-flow: column;
+  position: fixed;
+  top: 0px;
+  z-index: 9999;
+  width: 100%;
+}
+
+.nav-bottombar {
+  display: flex;
+  flex-flow: column;
+  position: fixed;
+  bottom: 0px;
+  z-index: 9999;
+  width: 100%;
+}
+.no-border {
+  border: none !important;
+}
+.no-shadow {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+.icon-l {
+  position: absolute;
+  left: 16px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.icon-r {
+  position: absolute;
+  right: 16px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.icon-size-24 {
+  font-size: 24px;
+}
+.icon-size-32 {
+  font-size: 32px;
+}
+/* 页面过度动效 */
+/* .page-enter-active,
+.page-leave-active {
+  transition: opacity 0.35s;
+}
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+} */
+
+.test-enter-active,
+.test-leave-active {
+  transition: all 0.5s;
+  font-size: 12px;
+}
+.test-enter,
+.test-leave-active {
+  opacity: 0;
+  font-size: 40px;
+}
