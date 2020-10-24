@@ -16,8 +16,9 @@ export default {
     icon : {
       type : String,
       default : "ri-home-3-line",
-    }
-  }
+    },
+  },
+
 };
 </script>
 

@@ -2,31 +2,27 @@
   <div>
     <div class="nav-topbar">
       <IndexTopbar/>
-      <!-- <TopBar 
-      :title="title"
-      class="no-border"
-      />
-      <SearchBar /> -->
     </div>
-    <div class="index-list-view">
-      <IndexBanner />
-      <TitleSection 
-      :listTitle = "listTitle"
-      :titleSectionAction = "titleSectionAction"
-      />
+    <button style="margin-top:120px;padding: 24px;" @click="show = !show">点击</button>
+    <transition name="fade">
 
-      <div class="goods-list">
-       <GoodsCard
-       v-for="(item, index) in list"
-       :goodsImage="item.goodsImage"
-       :goodsTitle="item.goodsTitle"
-       :goodsPrice="item.goodsPrice"
-       />
+      <div class="index-list-view" v-if="show" :key="listview">
+        <IndexBanner />
+        <TitleSection 
+        :listTitle = "listTitle"
+        :titleSectionAction = "titleSectionAction"
+        />
+
+        <div class="goods-list">
+          <GoodsCard
+          v-for="(item, index) in list"
+          :goodsImage="item.goodsImage"
+          :goodsTitle="item.goodsTitle"
+          :goodsPrice="item.goodsPrice"
+          />
+        </div>
       </div>
-
-    </div>
-
-    
+    </transition>
 
     <div class="nav-bottombar">
       <BottomBar />
@@ -36,9 +32,13 @@
 
 <script>
 export default {
-  transitions:"test",
   data(){
     return {
+      // transition: {
+      //   name: 'fade',
+      //   mode: 'out-in',
+      // },
+      show: true,
       title: "高端商城",
       listTitle:"热门商品",
       titleSectionAction: "查看更多",
@@ -69,7 +69,6 @@ body {
 }
 /* 创建一个 no-border 样式，覆盖 topbar 组件中的 border 样式 */
 
-
 .top-area {
   position: fixed;
   top: 0px;
@@ -89,4 +88,27 @@ body {
   padding: 0 8px;
 }
 
+/* 以下为过渡动画 */
+
+
+.fade-enter {
+  opacity: 0;
+  transform: scale(0.96)  translate(0px,-90px);
+}
+.fade-enter-active {
+  transition: opacity 1s,transform 2s;
+}
+.fade-enter-to {
+
+}
+
+.fade-leave {
+
+}
+.fade-leave-active {
+
+}
+.fade-leave-to {
+  
+}
 </style>

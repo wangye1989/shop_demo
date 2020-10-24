@@ -6,14 +6,14 @@
 
       <!-- 菜单的左右结构布局 -->
       <div class="menu-list">
-          <div class="type-menu">
+          <div class="type-menu" >
             <!-- todo：默认选中状态，点击切换选中状态 -->
-        <div :class="isSelected == menu.index ? ('menu-selected') : ('') " class="menu-item"   v-for="(item, i) in menu" :key="i" >{{item.menuTitle}}</div>
+        <div  :class="unsel"   v-for="(item, key) in menu" :key="key" :active-key="activeKey"  @click="update">{{item.menuTitle}}</div>
       </div>
 
       <!-- 菜单内容 -->
         <div class="categry-content">
-          <div class="categry-item" v-for="(itemType, list) in menu.list" :key="d">
+          <div class="categry-item" v-if="menu[activeKey]" v-for="(itemType, list) in menu.list" :key="d">
             <div class="categry-img">{{itemType.lableImg}}</div>
             <div class="categry-name">{{itemType.lableTitle}}</div>
           </div>
@@ -29,10 +29,9 @@
 export default {
   data() {
     return {
-      activeClass: -1,
-      getItem(index) {
-        this.activeClass = index;
-      },
+      activeKey: 0,
+      unsel:"menu-item",
+      sel: "menu-selected",
       menu:[
       {menuTitle:'男装',
       list:[
@@ -63,8 +62,13 @@ export default {
     }
   },
 
+  methods:{
+    update(key){
+      this.activeKey = key;
+      this.unsel = this.sel;//为什么要加 this？
+    }
+  },
 }
-
 </script>
 
 <style>
@@ -95,6 +99,9 @@ export default {
   padding: 12px 24px;
 }
 .menu-selected {
+  font-size: 16px;
+  align-items: center;
+  padding: 12px 24px;
   background-color: var(--c-f-main);
   border-left: 2px solid var(--c-f-action);
 }

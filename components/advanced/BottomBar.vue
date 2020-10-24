@@ -6,6 +6,7 @@
     :lable = "item.title"
     :url = "item.url"
     :icon = "item.icon"
+
     />
   </div>
 </template>

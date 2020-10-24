@@ -93,23 +93,3 @@ a {
 .icon-size-32 {
   font-size: 32px;
 }
-/* 页面过度动效 */
-/* .page-enter-active,
-.page-leave-active {
-  transition: opacity 0.35s;
-}
-.page-enter,
-.page-leave-active {
-  opacity: 0;
-} */
-
-.test-enter-active,
-.test-leave-active {
-  transition: all 0.5s;
-  font-size: 12px;
-}
-.test-enter,
-.test-leave-active {
-  opacity: 0;
-  font-size: 40px;
-}
