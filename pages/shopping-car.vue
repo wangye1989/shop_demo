@@ -10,6 +10,7 @@
     <div class="nav-bottombar">
       <CarTotalBar />
       <BottomBar 
+      :selected = "2"
       class="no-shadow"
       />
     </div>

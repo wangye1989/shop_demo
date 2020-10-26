@@ -1,5 +1,5 @@
 <template>
-  <router-link class="bottom-bar-item" :to="url">
+  <router-link class="bottom-bar-item" :to="url" :class="{'bottom-item-sel': selected}">
     <div class="bottom-icon">
       <i :class="icon" class="icon-size-32"></i>
     </div>
@@ -11,6 +11,7 @@
 export default {
   transition: 'test',
   props:{
+    selected: Boolean,
     lable : String,
     url : String,
     icon : {
@@ -40,5 +41,10 @@ export default {
   font-size: 12px;
   font-weight: 16px;
   color: var(--c-t-primary);
+}
+
+.bottom-item-sel i {
+  color: var(--c-f-action);
+  text-shadow: 0 2px 8px rgba(253, 100, 100,.8);
 }
 </style>

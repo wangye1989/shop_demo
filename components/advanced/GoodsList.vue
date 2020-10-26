@@ -17,8 +17,8 @@ export default {};
 .goods-list {
   padding: 0 8px;
   display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.5fr 0.5fr;
+  grid-template-columns: 0.5fr 1fr;
   grid-gap: 8px;
 }
 </style>

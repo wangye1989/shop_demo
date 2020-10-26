@@ -8,19 +8,21 @@
       <div class="menu-list">
           <div class="type-menu" >
             <!-- todo：默认选中状态，点击切换选中状态 -->
-        <div  :class="unsel"   v-for="(item, key) in menu" :key="key" :active-key="activeKey"  @click="update">{{item.menuTitle}}</div>
+        <div  class="menu-item"   v-for="(item, key) in menu" :key="key" :class="{'menu-selected': activeKey == key}"  @click="update(key)">{{item.menuTitle}}</div>
       </div>
 
       <!-- 菜单内容 -->
         <div class="categry-content">
-          <div class="categry-item" v-if="menu[activeKey]" v-for="(itemType, list) in menu.list" :key="d">
-            <div class="categry-img">{{itemType.lableImg}}</div>
+          <div class="categry-item" v-if="menu[activeKey]" v-for="(itemType, index) in menu[activeKey].list" :key="index">
+            <img class="categry-img" :src="itemType.lableImg" />
             <div class="categry-name">{{itemType.lableTitle}}</div>
           </div>
         </div>
       </div>
       <div class="nav-bottombar">
-        <BottomBar/>
+        <BottomBar
+        :selected = "1"
+        />
       </div>
   </div>
 </template>
@@ -29,34 +31,32 @@
 export default {
   data() {
     return {
-      activeKey: 0,
-      unsel:"menu-item",
-      sel: "menu-selected",
+      activeKey : 0,
       menu:[
       {menuTitle:'男装',
       list:[
-        {lableImg:'http://via.placeholder.com/100',lableTitle:'男装-1',path:''},
-        {lableImg:'http://via.placeholder.com/100',lableTitle:'男装-2',path:''},
-        {lableImg:'http://via.placeholder.com/100',lableTitle:'男装-3',path:''},
+        {lableImg:'http://via.placeholder.com/100',lableTitle:'男装-1'},
+        {lableImg:'http://via.placeholder.com/100',lableTitle:'男装-2'},
+        {lableImg:'http://via.placeholder.com/100',lableTitle:'男装-3'},
       ]},
       {menuTitle:'女装',
       list:[
-        {lableImg:'http://via.placeholder.com/100',lableTitle:'女装-1',path:''},
-        {lableImg:'http://via.placeholder.com/100',lableTitle:'女装-2',path:''},
-        {lableImg:'http://via.placeholder.com/100',lableTitle:'女装-3',path:''},
+        {lableImg:'http://via.placeholder.com/100',lableTitle:'女装-1'},
+        {lableImg:'http://via.placeholder.com/100',lableTitle:'女装-2'},
+        {lableImg:'http://via.placeholder.com/100',lableTitle:'女装-3'},
       ]},
       {menuTitle:'化妆品',
       list:[
-        {lableImg:'http://via.placeholder.com/100',lableTitle:'化妆品-1',path:''},
-        {lableImg:'http://via.placeholder.com/100',lableTitle:'化妆-2',path:''},
-        {lableImg:'http://via.placeholder.com/100',lableTitle:'化妆-3',path:''},
+        {lableImg:'http://via.placeholder.com/100',lableTitle:'化妆品-1'},
+        {lableImg:'http://via.placeholder.com/100',lableTitle:'化妆-2'},
+        {lableImg:'http://via.placeholder.com/100',lableTitle:'化妆-3'},
       ]},
       {menuTitle:'数码科技',
       list:[
-        {lableImg:'http://via.placeholder.com/100',lableTitle:'手机',path:''},
-        {lableImg:'http://via.placeholder.com/100',lableTitle:'电脑',path:''},
-        {lableImg:'http://via.placeholder.com/100',lableTitle:'键盘',path:''},
-        {lableImg:'http://via.placeholder.com/100',lableTitle:'显示器',path:''},
+        {lableImg:'http://via.placeholder.com/100',lableTitle:'手机'},
+        {lableImg:'http://via.placeholder.com/100',lableTitle:'电脑'},
+        {lableImg:'http://via.placeholder.com/100',lableTitle:'键盘'},
+        {lableImg:'http://via.placeholder.com/100',lableTitle:'显示器'},
       ]},
     ],
     }
@@ -65,7 +65,6 @@ export default {
   methods:{
     update(key){
       this.activeKey = key;
-      this.unsel = this.sel;//为什么要加 this？
     }
   },
 }

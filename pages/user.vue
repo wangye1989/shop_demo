@@ -34,7 +34,9 @@
       /> 
     </div>
       <div class="nav-bottombar">
-      <BottomBar/>
+      <BottomBar
+      :selected = "3"
+      />
       </div>
   </div>
 </template>
@@ -51,6 +53,7 @@ export default {
       viewAll : "全部订单",
     }
   },
+
 }
 </script>
 

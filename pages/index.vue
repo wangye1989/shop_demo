@@ -3,7 +3,6 @@
     <div class="nav-topbar">
       <IndexTopbar/>
     </div>
-    <button style="margin-top:120px;padding: 24px;" @click="show = !show">点击</button>
     <transition name="fade">
 
       <div class="index-list-view" v-if="show" :key="listview">
@@ -25,7 +24,9 @@
     </transition>
 
     <div class="nav-bottombar">
-      <BottomBar />
+      <BottomBar 
+      :selected = "0"
+      />
     </div>
   </div>
 </template>
@@ -38,7 +39,7 @@ export default {
       //   name: 'fade',
       //   mode: 'out-in',
       // },
-      show: true,
+      show: false,
       title: "高端商城",
       listTitle:"热门商品",
       titleSectionAction: "查看更多",
@@ -55,6 +56,10 @@ export default {
 
   methods:{
 
+  },
+
+  mounted() {
+    this.show = true;
   },
 
   created() {
@@ -93,10 +98,10 @@ body {
 
 .fade-enter {
   opacity: 0;
-  transform: scale(0.96)  translate(0px,-90px);
+  transform: scale(0.86)  translate(0px,-90px);
 }
 .fade-enter-active {
-  transition: opacity 1s,transform 2s;
+  transition: opacity 1s,transform 1s;
 }
 .fade-enter-to {
 

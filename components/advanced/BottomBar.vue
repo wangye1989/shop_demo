@@ -2,7 +2,7 @@
   <div id="bottom-bar">
     <BottomBarItem v-for="(item, index) in list"
     :key="index"
-    :class="{'choosed': selected === index}"
+    :selected="selected === index"
     :lable = "item.title"
     :url = "item.url"
     :icon = "item.icon"
